@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component, Dimensions } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -17,7 +17,6 @@ import LinearGradient from 'react-native-linear-gradient';
 export default class App extends Component {
   constructor(props) {
     super(props);
-
     this.setTimeinState = this.setTimeinState.bind(this);
   }
 
@@ -42,20 +41,20 @@ export default class App extends Component {
       return (
         <LinearGradient colors={['#2a1e50', '#DC545E']} style={styles.container}>
             <View style={styles.box}>
-              <Text style={styles.welcome}>Current time is</Text>
-              <Text style={styles.time}>{this.state.hour} : {this.state.minutes} : {this.state.seconds}</Text>
+              <Text style={styles.time}>{this.state.hour} : {this.state.minutes}</Text>
             </View>
         </LinearGradient>
       );
     } else {
       return (
         <LinearGradient colors={['#2a1e50', '#DC545E']} style={styles.container}>
-          <Text style={styles.welcome}>
+          <Text style={styles.time}>
             Welcome
           </Text>
         </LinearGradient>
         )
     }
+
   }
 }
 
@@ -64,17 +63,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#333',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor:'transparent',
-    margin: 10,
+  box: {
+    height: 200,
+    width: 200,
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,.3)',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   time: {
     fontSize: 56,
     color: '#fff',
+    fontWeight: '200',
     backgroundColor:'transparent',
   }
 });
